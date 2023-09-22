@@ -1,3 +1,42 @@
+Program 6: One Dimensional Heat Equation
+
+(Implicit Method)
+
+function [u]=heat_implicit ( to, tn,x0,xn, I, J,c)
+
+h=(xn-x0) /I;
+
+k=(tn-t0)/J
+
+r=c*k/ (h) ^2;
+
+f=@(x) 4*x-x^2 ;
+
+x=x0:h:xn;
+
+t=t0:k:tn;
+
+u-zeros (I+1,J+1); u(:,1) f(x);
+
+u (1,:)=0;
+
+u (1+1, :)=0; A=diag ((1+2*r) *ones (1-1, 1)) -r*diag (ones (I- 2,1),-1)-diag (ones (1-2,1),1);
+
+b-zeros (I-1,1);
+
+for j=2:J+1
+
+b(1,1) = u(2,j-1)+ru (1,3);
+
+b (2:1-2,1)-u (3:1-1, j-1);
+
+b(1-1,1)-u (I,j-1)+ru (I+1,j) u(2:1, j)-A\b;
+
+end
+
+
+
+
 . Euler’s Method 
 
  
